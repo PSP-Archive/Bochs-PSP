@@ -1,0 +1,28 @@
+#!/bin/sh
+
+#
+# These are the steps I typically use to configure and compile Bochs.
+#
+
+# Sony PSP
+set echo
+CC="psp-gcc"
+CXX="psp-g++"
+INCDIR="$PSPSDK/include"
+PSPBIN="$PSPDEV/psp/bin"
+CFLAGS="-I$INCDIR `$PSPBIN/sdl-config --cflags` -Wall -O2 -G0"
+CXXFLAGS="$CFLAGS -fno-exceptions -fno-rtti"
+ASFLAGS="$CFLAGS"
+LDFLAGS="`$PSPBIN/sdl-config --libs` -L`psp-config --pspsdk-path`/lib -lc -lpspglue -lc -lpspuser"
+
+
+export CC
+export CXX
+export CFLAGS
+export CXXFLAGS
+export ASFLAGS
+export LDFLAGS
+
+./configure --verbose --with-sdl --disable-cdrom --host psp --prefix=`psp-config --pspsdk-path`/..
+
+unset echo

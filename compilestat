@@ -1,0 +1,1 @@
+psp-g++ pspstat.c -c -I/usr/local/pspdev/psp/sdk/include -Wall -O2 -G0 -fno-exceptions -fno-rtti -L/usr/local/pspdev/psp/sdk/../lib -L/usr/local/pspdev/psp/sdk/lib -L/usr/local/pspdev/psp/bin -L/usr/local/pspdev/psp/lib -L/usr/local/pspdev/lib/gcc/psp/4.0.1 -L/usr/local/pspdev/lib/gcc/psp/4.0.1/../../../../psp/lib -lpspkernel
